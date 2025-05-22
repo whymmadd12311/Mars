@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoMarsNow – Book Your Ticket to Mars</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #ff2d55;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background-image: url('https://mars.nasa.gov/system/news_items/main_images/9465_PIA25681-FigureA-web.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: rgba(0, 0, 0, 0.6);
+      display: inline-block;
+      padding: 0.5rem 1rem;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      background-color: #ff2d55;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e0244d;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .booking-form, .faq, .testimonials {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #111;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 1rem;
+      margin: 1rem 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .class-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #222;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid #444;
+    }
+
+    .countdown {
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      background: #111;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      .hero h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>GoMarsNow 🚀</h1>
+    <p>Your One-Way Ticket to the Red Planet</p>
+  </header>
+
+  <section class="hero">
+    <h2>Mission Launch: MARS 2026</h2>
+    <p>Be part of human history. Reserve your seat aboard the SpaceCruiser XL-9. Liftoff countdown below.</p>
+    <div class="countdown" id="countdown"></div>
+    <button class="btn" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'});">Book Now</button>
+  </section>
+
+  <section class="section" id="booking">
+    <h2>Book Your Mission</h2>
+    <form class="booking-form">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <select required>
+        <option value="">Select Travel Class</option>
+        <option>Galactic First</option>
+        <option>Orbital Business</option>
+        <option>Red Economy</option>
+      </select>
+      <textarea rows="4" placeholder="Any special requests? (Space pet, cryosleep preference...)"></textarea>
+      <button class="btn">Submit Booking</button>
+    </form>
+  </section>
+
+  <section class="section">
+    <h2>Travel Classes</h2>
+    <div class="class-cards">
+      <div class="card">
+        <h3>Red Economy</h3>
+        <p>Basic accommodations, recycled meals, shared window pod. A no-frills Mars ride.</p>
+      </div>
+      <div class="card">
+        <h3>Orbital Business</h3>
+        <p>Private sleep capsule, virtual gravity, upgraded rations. For professionals on the move.</p>
+      </div>
+      <div class="card">
+        <h3>Galactic First</h3>
+        <p>Zero-G spa, Mars-view suite, gourmet meals, and complimentary stardust champagne.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq">
+    <h2>FAQ</h2>
+    <p><strong>Q: Is this safe?</strong><br>A: No. But it's thrilling.</p>
+    <p><strong>Q: Can I return to Earth?</strong><br>A: Not unless you build a rocket.</p>
+    <p><strong>Q: Can I bring my cat?</strong><br>A: Only if it has a space suit.</p>
+  </section>
+
+  <section class="section testimonials">
+    <h2>Testimonials</h2>
+    <p>🧑‍🚀 “The view of Earth disappearing behind us? Unforgettable.” – Alex Q.</p>
+    <p>👩‍🚀 “I booked Galactic First. Worth every Martian credit.” – Lina V.</p>
+    <p>🛸 “I met aliens halfway and they high-fived me.” – Mysterious Passenger</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GoMarsNow Inc. All systems nominal.</p>
+  </footer>
+
+  <script>
+    // Countdown Timer
+    const countdown = document.getElementById('countdown');
+    const launchDate = new Date("2026-07-04T09:00:00Z").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+
+</body>
+</html>
